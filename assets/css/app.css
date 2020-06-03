@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html, body {
+    font-family: 'Numans', sans-serif;
+}
+
+.navbar-modified {
+    background-color: #ff646e !important;
+    color: white !important;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.bg-lightcoral {
+    background-color: #ff646e;
+}
+
+.display-5 {
+    font-size: 3.0rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.display-6 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.display-7 {
+    font-size: 2.0rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.bg-cover {
+    background-image: url('/assets/images/bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -999;
+    filter: blur(5px);
+}
+
+.center-middle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.a-no-link {
+    text-decoration: none !important;
+    text-underline: none !important;
+    color: black !important;
+}
