@@ -107,6 +107,21 @@ in the following figure.
 ![alt text](./assets/images/shot-13.png)
 
 
+## Requirements
+- XAMPP for local servers.
+- Anaconda with Python 3.
+- Create a new environment and upgrade libraries using:
+    - Open the command window.
+    - Create a new environment using the command:
+     `conda create -n tf-gpu tensorflow-gpu`.
+    - Activate the created environment using the command:
+     `activate tf-gpu`.
+    - Install (and upgrade) the libraries using the command:
+     `pip install --upgrade pandas sklearn matplotlib opencv-python`.
+- Notice that:
+    - The name of environment must be `tf-gpu` as Python will search for that name.
+
+
 ## Project Repo. on GitHub
 **Link**: https://github.com/HossamBalaha/Deep-Learning-Classification-System-using-PHP-and-Keras
 
