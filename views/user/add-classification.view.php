@@ -35,8 +35,7 @@ if (strcmp(realpath(__FILE__), $_SERVER["SCRIPT_FILENAME"]) == 0) {
       <div class="card shadow">
         <div class="card-body">
           <form action="/controllers/user/classifications.php?op=create"
-                enctype="multipart/form-data"
-                method="POST">
+                enctype="multipart/form-data" method="POST">
             <div class="form-group row">
               <label for="classifier" class="col-12 col-form-label col-md-2 font-weight-bold">
                 Classifier

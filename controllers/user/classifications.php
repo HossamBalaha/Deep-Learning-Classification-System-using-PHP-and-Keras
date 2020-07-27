@@ -80,13 +80,34 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["op"])) {
         return returnBack();
       }
 
+      $pre = "conda run -n tf-gpu";
       if ($type['id'] == 1) { // Images
         try {
           $pythonFile = realpath("../python/image.py");
           $modelFile = realpath("../../uploads/models/" . $classifier['model']);
           $labelsFile = realpath("../../uploads/models/" . $classifier['labels']);
           $imageFile = realpath("../../uploads/history/" . $newFileName);
-          $cmd = 'conda run -n tf-gpu python "' . $pythonFile . '" "' . $modelFile . '" "' .
+          $cmd = $pre . ' python "' . $pythonFile . '" "' . $modelFile . '" "' .
+            $imageFile . '" "' . $labelsFile . '"';
+          $command = escapeshellcmd($cmd);
+          $output = shell_exec($command);
+          $output = json_decode($output);
+          $outputStr = "";
+          foreach ($output as $k => $el) {
+            $outputStr .= $el[0] . ": " . $el[1] . "%\n";
+          }
+          $toInsert["output"] = $outputStr;
+        } catch (Exception $ex) {
+          $_SESSION['errors'] = ["Something went wrong during classification."];
+          return returnBack();
+        }
+      } else if ($type['id'] == 2) { // Sounds
+        try {
+          $pythonFile = realpath("../python/sound.py");
+          $modelFile = realpath("../../uploads/models/" . $classifier['model']);
+          $labelsFile = realpath("../../uploads/models/" . $classifier['labels']);
+          $imageFile = realpath("../../uploads/history/" . $newFileName);
+          $cmd = $pre . ' python "' . $pythonFile . '" "' . $modelFile . '" "' .
             $imageFile . '" "' . $labelsFile . '"';
           $command = escapeshellcmd($cmd);
           $output = shell_exec($command);
