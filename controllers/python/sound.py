@@ -43,9 +43,11 @@ try:
     labels[i] = labels[i].strip()
   f.close()
   
-  sampleLocation = os.path.join(os.getcwd(), "temp.png")
+  sampleLocation = os.path.join(os.getcwd(), "temp.jpg")
   audio, sr = librosa.load(soundPath)
   S = librosa.feature.melspectrogram(y=audio, sr=sr)
+  pylab.axis("off")
+  pylab.axes([0., 0., 1., 1.], frameon=False, xticks=[], yticks=[])
   librosa.display.specshow(librosa.power_to_db(S, ref=np.max))
   pylab.savefig(sampleLocation, bbox_inches=None, pad_inches=0)
   pylab.close()
